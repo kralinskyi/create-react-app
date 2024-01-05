@@ -4,8 +4,9 @@ import "./App.css";
 // import Dropdown from "Components/Dropdown";
 // import Section from "Components/Section";
 // import ColorPicker from "Components/ColorPicker";
-import TodoList from "Components/TodoList";
-import initialTodos from "../../todos.json";
+// import TodoList from "Components/TodoList";
+// import initialTodos from "../../todos.json";
+import videos from "../../videos.json";
 
 // import colors from "../ColorPicker/colors.json";
 // const colors = [
@@ -19,32 +20,27 @@ import initialTodos from "../../todos.json";
 
 class App extends Component {
   state = {
-    todos: initialTodos,
+    // todos: initialTodos,
   };
 
-  deleteTodo = (todoId) => {
-    this.setState((prevState) => ({
-      todos: prevState.todos.filter((todo) => todo.id !== todoId),
-    }));
-  };
+  // deleteTodo = (todoId) => {
+  //   this.setState((prevState) => ({
+  //     todos: prevState.todos.filter((todo) => todo.id !== todoId),
+  //   }));
+  // };
 
   render() {
     const { todos } = this.state;
-
-    const completedTodos = todos.reduce(
-      (acc, todo) => (todo.completed ? acc + 1 : acc),
-      0
-    );
 
     return (
       <div className="app">
         {/* <Counter /> */}
         {/* <Dropdown /> */}
         {/* <ColorPicker colors={colors} /> */}
-        <TodoList todos={todos} onDeleteTodo={this.deleteTodo}>
-          <p>Total todos: {todos.length}</p>
-          <p>Completed todos: {completedTodos}</p>
-        </TodoList>
+        {/* <TodoList todos={todos} onDeleteTodo={this.deleteTodo}> */}
+        <p>Total todos: {todos.length}</p>
+        <p>Completed todos: {completedTodos}</p>
+        {/* </TodoList> */}
       </div>
     );
   }
