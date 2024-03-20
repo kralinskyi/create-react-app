@@ -23,7 +23,7 @@ export default function Form() {
     dispatch(addContact({ name, number }))
       .unwrap()
       .then(() => {
-        toast.success(`New contact ${name} added!`);
+        toast.success(`New contact with name ${name} added!`);
       })
       .catch(() => {
         toast.error("Something went wrong..");
