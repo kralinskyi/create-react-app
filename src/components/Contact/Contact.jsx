@@ -11,6 +11,9 @@ export default function Contact({ contact: { id, name, number } }) {
       .unwrap()
       .then(() => {
         toast.success(`Contact ${name} was deleted!`);
+      })
+      .catch(() => {
+        toast.error("Something went wrong..");
       });
   };
 

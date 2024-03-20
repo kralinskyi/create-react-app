@@ -24,6 +24,9 @@ export default function Form() {
       .unwrap()
       .then(() => {
         toast.success(`New contact ${name} added!`);
+      })
+      .catch(() => {
+        toast.error("Something went wrong..");
       });
 
     setName("");
