@@ -5,56 +5,54 @@ import { createSelector } from "reselect";
 const slice = createSlice({
   name: "contacts",
   initialState: {
-    contacts: {
-      items: [],
-      loading: false,
-      error: null,
-    },
+    items: [],
+    loading: false,
+    error: null,
   },
   reducers: {},
   extraReducers: (builder) =>
     builder
       .addCase(fetchContacts.pending, (state) => {
-        state.contacts.error = false;
-        state.contacts.loading = true;
+        state.error = false;
+        state.loading = true;
       })
       .addCase(fetchContacts.fulfilled, (state, action) => {
-        state.contacts.loading = false;
-        state.contacts.items = action.payload;
+        state.loading = false;
+        state.items = action.payload;
       })
       .addCase(fetchContacts.rejected, (state, action) => {
-        state.contacts.loading = false;
-        state.contacts.error = action.payload;
+        state.loading = false;
+        state.error = action.payload;
       })
       .addCase(deleteContact.pending, (state) => {
-        state.contacts.error = false;
-        state.contacts.loading = true;
+        state.error = false;
+        state.loading = true;
       })
       .addCase(deleteContact.fulfilled, (state, action) => {
-        state.contacts.loading = false;
-        state.contacts.items = state.contacts.items.filter(
+        state.loading = false;
+        state.items = state.items.filter(
           (contact) => contact.id !== action.payload.id
         );
       })
       .addCase(deleteContact.rejected, (state, action) => {
-        state.contacts.loading = false;
-        state.contacts.error = action.payload;
+        state.loading = false;
+        state.error = action.payload;
       })
       .addCase(addContact.pending, (state) => {
-        state.contacts.error = false;
-        state.contacts.loading = true;
+        state.error = false;
+        state.loading = true;
       })
       .addCase(addContact.fulfilled, (state, action) => {
-        state.contacts.loading = false;
-        state.contacts.items.push(action.payload);
+        state.loading = false;
+        state.items.push(action.payload);
       })
       .addCase(addContact.rejected, (state, action) => {
-        state.contacts.loading = false;
-        state.contacts.error = action.payload;
+        state.loading = false;
+        state.error = action.payload;
       }),
 });
 
-export const selectContacts = (state) => state.contacts.contacts.items;
+export const selectContacts = (state) => state.contacts.items;
 
 export const selectFilter = (state) => state.filters.name;
 

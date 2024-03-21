@@ -11,8 +11,8 @@ import toast, { Toaster } from "react-hot-toast";
 
 function App() {
   const dispatch = useDispatch();
-  const selectLoading = useSelector((state) => state.contacts.contacts.loading);
-  const selectError = useSelector((state) => state.contacts.contacts.error);
+  const selectLoading = useSelector((state) => state.loading);
+  const selectError = useSelector((state) => state.error);
 
   useEffect(() => {
     dispatch(fetchContacts())
